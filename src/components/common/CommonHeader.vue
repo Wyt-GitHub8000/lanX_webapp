@@ -15,8 +15,9 @@
             <!--</ul>-->
         <!--</div>-->
         <ul class="nav">
-            <li @click="clickMenu(item)" v-for="item in navMenu">{{item.label}}</li >
+            <li @click="clickMenu(item,index)" v-for="(item,index) in navMenu" :class="flag==index?'current':''">{{item.label}}</li >
         </ul>
+        <div class=""></div>
     </div>
 </template>
 
@@ -32,16 +33,21 @@
                 }
                 this.isShow = ! this.isShow;
             },
-            clickMenu(item){
+            clickMenu(item,index){
+                //点击菜单项更改样式
+                this.flag=index
                 $('.nav li').click(function() {
                     $(this).addClass('current');
                     $(this).siblings('.current').removeClass('current');
                 })
+                this.listShow()
+                //进行路由跳转
                 this.$router.push({name: item.name})
             }
         },
         data(){
             return {
+                flag:0,
                 isShow:false,
                 navMenu: [
                     {
