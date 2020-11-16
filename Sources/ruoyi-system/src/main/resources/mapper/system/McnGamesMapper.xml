@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.McnGamesMapper">
+    
+    <resultMap type="McnGames" id="McnGamesResult">
+        <result property="id"    column="id"    />
+        <result property="appId"    column="app_id"    />
+        <result property="appName"    column="app_name"    />
+        <result property="appIcon"    column="app_icon"    />
+        <result property="title"    column="title"    />
+        <result property="summary"    column="summary"    />
+        <result property="description"    column="description"    />
+        <result property="factory"    column="factory"    />
+        <result property="andoridUrl"    column="andorid_url"    />
+        <result property="appleUrl"    column="apple_url"    />
+        <result property="experieUrl"    column="experie_url"    />
+        <result property="appSize"    column="app_size"    />
+        <result property="appVersion"    column="app_version"    />
+        <result property="appUpdatedAt"    column="app_updated_at"    />
+        <result property="status"    column="status"    />
+        <result property="appCover"    column="app_cover"    />
+        <result property="gameCover"    column="game_cover"    />
+        <result property="createdAt"    column="created_at"    />
+        <result property="updatedAt"    column="updated_at"    />
+    </resultMap>
+
+    <sql id="selectMcnGamesVo">
+        select id, app_id, app_name, app_icon, title, summary, description, factory, andorid_url, apple_url, experie_url, app_size, app_version, app_updated_at, `status`, app_cover, game_cover, created_at, updated_at from mcn_games
+    </sql>
+
+    <select id="selectMcnGamesList" parameterType="McnGames" resultMap="McnGamesResult">
+        <include refid="selectMcnGamesVo"/>
+        <where>  
+            <if test="appId != null  and appId != ''"> and app_id = #{appId}</if>
+            <if test="appName != null  and appName != ''"> and app_name like concat('%', #{appName}, '%')</if>
+            <if test="appIcon != null  and appIcon != ''"> and app_icon = #{appIcon}</if>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="summary != null  and summary != ''"> and summary = #{summary}</if>
+            <if test="description != null  and description != ''"> and description = #{description}</if>
+            <if test="factory != null  and factory != ''"> and factory = #{factory}</if>
+            <if test="andoridUrl != null  and andoridUrl != ''"> and andorid_url = #{andoridUrl}</if>
+            <if test="appleUrl != null  and appleUrl != ''"> and apple_url = #{appleUrl}</if>
+            <if test="experieUrl != null  and experieUrl != ''"> and experie_url = #{experieUrl}</if>
+            <if test="appSize != null  and appSize != ''"> and app_size = #{appSize}</if>
+            <if test="appVersion != null  and appVersion != ''"> and app_version = #{appVersion}</if>
+            <if test="appUpdatedAt != null "> and app_updated_at = #{appUpdatedAt}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="appCover != null  and appCover != ''"> and app_cover = #{appCover}</if>
+            <if test="gameCover != null  and gameCover != ''"> and game_cover = #{gameCover}</if>
+            <if test="createdAt != null "> and created_at = #{createdAt}</if>
+            <if test="updatedAt != null "> and updated_at = #{updatedAt}</if>
+        </where>
+    </select>
+    
+    <select id="selectMcnGamesById" parameterType="Integer" resultMap="McnGamesResult">
+        <include refid="selectMcnGamesVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMcnGames" parameterType="McnGames" useGeneratedKeys="true" keyProperty="id">
+        insert into mcn_games
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="appId != null">app_id,</if>
+            <if test="appName != null">app_name,</if>
+            <if test="appIcon != null">app_icon,</if>
+            <if test="title != null">title,</if>
+            <if test="summary != null">summary,</if>
+            <if test="description != null">description,</if>
+            <if test="factory != null">factory,</if>
+            <if test="andoridUrl != null">andorid_url,</if>
+            <if test="appleUrl != null">apple_url,</if>
+            <if test="experieUrl != null">experie_url,</if>
+            <if test="appSize != null">app_size,</if>
+            <if test="appVersion != null">app_version,</if>
+            <if test="appUpdatedAt != null">app_updated_at,</if>
+            <if test="status != null">status,</if>
+            <if test="appCover != null">app_cover,</if>
+            <if test="gameCover != null">game_cover,</if>
+            <if test="createdAt != null">created_at,</if>
+            <if test="updatedAt != null">updated_at,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="appId != null">#{appId},</if>
+            <if test="appName != null">#{appName},</if>
+            <if test="appIcon != null">#{appIcon},</if>
+            <if test="title != null">#{title},</if>
+            <if test="summary != null">#{summary},</if>
+            <if test="description != null">#{description},</if>
+            <if test="factory != null">#{factory},</if>
+            <if test="andoridUrl != null">#{andoridUrl},</if>
+            <if test="appleUrl != null">#{appleUrl},</if>
+            <if test="experieUrl != null">#{experieUrl},</if>
+            <if test="appSize != null">#{appSize},</if>
+            <if test="appVersion != null">#{appVersion},</if>
+            <if test="appUpdatedAt != null">#{appUpdatedAt},</if>
+            <if test="status != null">#{status},</if>
+            <if test="appCover != null">#{appCover},</if>
+            <if test="gameCover != null">#{gameCover},</if>
+            <if test="createdAt != null">#{createdAt},</if>
+            <if test="updatedAt != null">#{updatedAt},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMcnGames" parameterType="McnGames">
+        update mcn_games
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="appId != null">app_id = #{appId},</if>
+            <if test="appName != null">app_name = #{appName},</if>
+            <if test="appIcon != null">app_icon = #{appIcon},</if>
+            <if test="title != null">title = #{title},</if>
+            <if test="summary != null">summary = #{summary},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="factory != null">factory = #{factory},</if>
+            <if test="andoridUrl != null">andorid_url = #{andoridUrl},</if>
+            <if test="appleUrl != null">apple_url = #{appleUrl},</if>
+            <if test="experieUrl != null">experie_url = #{experieUrl},</if>
+            <if test="appSize != null">app_size = #{appSize},</if>
+            <if test="appVersion != null">app_version = #{appVersion},</if>
+            <if test="appUpdatedAt != null">app_updated_at = #{appUpdatedAt},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="appCover != null">app_cover = #{appCover},</if>
+            <if test="gameCover != null">game_cover = #{gameCover},</if>
+            <if test="createdAt != null">created_at = #{createdAt},</if>
+            <if test="updatedAt != null">updated_at = #{updatedAt},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMcnGamesById" parameterType="Integer">
+        delete from mcn_games where id = #{id}
+    </delete>
+
+    <delete id="deleteMcnGamesByIds" parameterType="String">
+        delete from mcn_games where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>
