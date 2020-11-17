@@ -5,13 +5,13 @@
             <a href="">更多</a>
         </div>
         <div style="margin-top: 9px">
-            <ul class="playerlist clearfix">
-                <li style="display: flex; align-items: center" v-for="(item,index) in item" >
+            <ul class="playerlist">
+                <li style="display: flex; align-items: center" v-for="(item,index) in item" @click="playerClick(item,index)">
                     <span style="font-size: 12px; color: #FE931B; margin:0 13px">{{index+1}}</span>
-                    <img src="../../../assets/images/home/tou.png" style="width: 40px; height: 40px; border-radius: 50%">
+                    <img src="~assets/images/home/tou.png" style="width: 40px; height: 40px; border-radius: 50%">
                     <div style="display: flex; flex-direction: column; margin-left: 8px">
-                        <span style="font-size: 12px; color: #333; margin: 10px 0 6px">{{item.playerName}}</span>
-                        <span style="font-size: 10px; color: #9D9D9D">{{item.playerCore}}</span>
+                        <span style="font-size: 12px; color: #333; margin: 6px 0 6px">{{item.playerName}}</span>
+                        <span style="font-size: 10px; color: #9D9D9D">综合得分:{{item.playerClass}}★</span>
                     </div>
                 </li>
             </ul>
@@ -24,6 +24,15 @@
         name: 'PlayerRank',
         props:{
             item:Array
+        },
+        methods:{
+            playerClick(item,index){
+                if(index ===0){
+                    this.$store.commit('copyPlayerMessage',item);
+                    this.$router.push('/playerdetails');
+                }
+
+            }
         }
     }
 </script>
@@ -47,12 +56,13 @@
         }
     }
     .playerlist{
+        display: flex;
         width: 351px;
+        flex-wrap: wrap;
         li{
             width: 170px;
             height: 66px;
             display: block;
-            float: left;
             border-radius: 4px;
             box-shadow: 0 2px 2px 0 rgba(0,0,0,0.05);
             background-color: #fff;
@@ -63,12 +73,5 @@
         li:nth-child(odd){
             margin-right: 5px;
         }
-    }
-    .clearfix:after{
-        content:".";
-        display:block;
-        height:0;
-        clear:both;
-        visibility:hidden;
     }
 </style>

@@ -42,6 +42,22 @@ const routes = [
     {
         path: '/find/more',
         component: ()=>import('../views/find/More.vue')
+    },
+    {
+        path: '/viedo/more',
+        component: ()=>import('../views/viedo/More.vue')
+    },
+    {
+        path: '/search',
+        component: ()=>import('../views/search/Search.vue')
+    },
+    {
+        path: '/gamedetails',
+        component: ()=>import('../views/details/GameDetail.vue')         //注意组件名字，居然多了一个空格
+    },
+    {
+        path: '/playerdetails',
+        component: ()=>import('../views/details/PlayerDetails.vue')
     }
 ]
 

@@ -1,7 +1,7 @@
 <template>
     <div class="rank">
         <div class="title">
-            <img src="../../assets/images/jiang.png" alt="">
+            <img src="~assets/images/rank/jiang.png" alt="">
             <span>排行榜</span>
             <h2>TOP150</h2>
         </div>
@@ -11,7 +11,7 @@
                     <ul class="game">
                         <li v-for="(item,index) in gameList">
                             <corner-marker :index="index+1"></corner-marker>
-                            <img src="../../assets/images/rank/touxiang.png" style="width: 60px; height: 60px;">
+                            <img src="~assets/images/rank/touxiang.png" style="width: 60px; height: 60px;">
                             <div>
                                 <div style="margin-top: 25px">
                                     <span style="width: 28px; height: 14px; font-size: 14px; color: #333">{{item.gameName}}</span>
@@ -33,7 +33,7 @@
                     <ul class="player">
                         <li v-for="(item,index) in playList">
                             <corner-marker :index="index+1"></corner-marker>
-                            <img src="../../assets/images/footer/xihongs.png" width="60" height="60">
+                            <img src="~assets/images/footer/xihongs.png">
                             <div style="margin-top: 23px">
                                 <div>
                                     <span style="width: 70px; height: 14px; font-size: 14px; line-height: 14px; color: #333">{{item.playName}}</span>
@@ -55,10 +55,10 @@
                     <ul class="viedo">
                         <li v-for="(item, index) in viedosList">
                             <corner-marker :index="index+1"></corner-marker>
-                            <img src="../../assets/images/rank/tihuan.png" style="width: 168px; height: 94px; border-radius: 4px">
-                            <span style="left: 6px"><img src="../../assets/images/rank/dianzan.png">{{item.dzCount}}</span>
-                            <span style="left: 51px"><img src="../../assets/images/rank/pinglun.png">{{item.plCount}}</span>
-                            <span style="left: 120px"><img src="../../assets/images/rank/fenxiang.png">{{item.fxCount}}</span>
+                            <img src="~assets/images/rank/tihuan.png" style="width: 168px; height: 94px; border-radius: 4px">
+                            <span style="left: 6px"><img src="~assets/images/rank/dianzan.png">{{item.dzCount}}</span>
+                            <span style="left: 51px"><img src="~assets/images/rank/pinglun.png">{{item.plCount}}</span>
+                            <span style="left: 120px"><img src="~assets/images/rank/fenxiang.png">{{item.fxCount}}</span>
                             <div style="width:168px; height: 33px; font-size: 12px; line-height: 18px; color: #333; margin: 9px 0 3px 0; display: -webkit-box; overflow: hidden; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{item.viedoDescrib}}</div>
                             <div style="width: 50px; height: 10px; font-size: 10px; line-height: 18px; color: #999">{{item.viedoCreater}}</div>
                         </li>
@@ -71,8 +71,8 @@
 </template>
 
 <script>
-    import CornerMarker from '../../components/content/rank/CornerMarker.vue'
-    import MoreButton from '../../components/content/home/MoreButton.vue'
+    import CornerMarker from 'components/content/rank/CornerMarker.vue'
+    import MoreButton from 'components/content/home/MoreButton.vue'
     export default {
         name: 'Rank',
         components:{
@@ -137,7 +137,7 @@
     .game{
         margin-top: 10px;
         li{
-            width: 351px;
+            width: 345px;
             height: 132px;
             background-color: #fff;
             border-radius: 4px;
@@ -169,7 +169,7 @@
     }
     .player{
         li{
-            width: 351px;
+            width: 345px;
             height: 96px;
             background: #ffffff;
             border-radius: 4px;
@@ -178,16 +178,20 @@
             position: relative;
             img{
                 margin: 18px 10px 20px 28px;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
             }
         }
     }
     .viedo{
         width: 345px;
+        display: flex;
+        flex-wrap: wrap;
         li{
             width: 168px;
             height: 154px;
             display: block;
-            float: left;
             position: relative;
             span{
                 position: absolute;

@@ -6,6 +6,8 @@ import homeApi from './home'
 import rankApi from './rank'
 import newsApi from './news'
 import findApi from './find'
+import viedoApi from './viedo'
+
 import page1Api from './pagination/one'
 import page2Api from './pagination/two'
 import page3Api from './pagination/three'
@@ -27,6 +29,7 @@ Mock.mock(/\/home\/getData/,'get',homeApi.getHomeData)
 Mock.mock(/\/rank\/getData/,'get',rankApi.getRankData)
 Mock.mock(/\/news\/getData/,'get',newsApi.getNewsData)
 Mock.mock(/\/find\/getData/,'get',findApi.getFindData)
+Mock.mock(/\/viedo\/getData/,'get',viedoApi.getViedoData)
 
 //处理分页请求
 Mock.mock(/\/more\/page\/1\/14/,'get',page1Api.getPage1Data)

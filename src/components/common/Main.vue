@@ -36,7 +36,7 @@
     }
     .header-warp{
         width: 100%;
-        height: 52px;
+        height: 45px;
     }
     .content-warp{
         width: 100%;

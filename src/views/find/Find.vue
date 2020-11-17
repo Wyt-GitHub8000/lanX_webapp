@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img src="../../assets/images/find/lb.png">
+        <img src="~assets/images/find/lb.png">
         <found :item="findList">每日新发现</found>
         <found :item="findList">近期最热</found>
         <found :item="findList">最近更新</found>
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import Found from '../../components/content/find/Found.vue'
+    import Found from 'components/content/find/Found.vue'
     export default {
         name: 'Find',
         data(){

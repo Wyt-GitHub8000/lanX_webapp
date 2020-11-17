@@ -2,7 +2,7 @@
     <div class="news">
         <div class="title">
             <span></span>
-            <slot @click="moreClick"></slot>
+            <slot></slot>
             <span @click="moreClick"><a>更多</a></span>
         </div>
         <div class="content">
@@ -15,7 +15,7 @@
                             <span style="width: 73px; height: 10px; font-size: 10px; line-height: 9px; color: #999">作者名:{{item.newsCreater}}</span>
                         </div>
                     </div>
-                    <img src="../../../assets/images/news/tx.png">
+                    <img src="~assets/images/news/tx.png">
                 </li>
             </ul>
         </div>
@@ -39,9 +39,9 @@
 <style lang="scss" scoped>
     .news{
         width: 100%;
-        background: #ffffff;
+        background: #fff;
         border-radius: 4px;
-        box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.05);
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.05);
         margin-top: 11px;
     .title{
         width: 100%;
@@ -63,7 +63,7 @@
         font-size: 12px;
         font-weight: 400;
         text-align: left;
-        color: #333333;
+        color: #333;
         margin: 0 211px 0 8px;
     }
     span:nth-child(3){

@@ -5,7 +5,7 @@
             <div style="width: 100%; height: 39px; font-size: 18px; color: #333; border-bottom: 1px solid #ddd; padding-top: 11px">每日新发现</div>
             <ul class="clearfix list">
                 <li v-for="item in lists">
-                    <img src="../../assets/images/find/m.png">
+                    <img src="~assets/images/find/m.png">
                     <div>
                         <div style="width: 48px; height: 12px; font-size: 12px; color: #333; margin: 20px 0 9px 0">{{item.gameName}}</div>
                         <div style="width: 40px; height: 10px; font-size: 10px; color: #666;">{{item.gameType}}</div>
@@ -15,7 +15,7 @@
             <div>
                 <ul class="pagination">
                     <li :class="this.page.pageNo<=1 ? 'disabled' : ''" @click="prePage()"><</li>
-                    <li :class="page.pageNo==index?'active':''" v-for="index in page.pageTotal" @click="curPage(index)">{{index}}</li>
+                    <li :class="page.pageNo==index?'active':''" v-for="index in pagination" @click="curPage(index)">{{index}}</li>
                     <li :class="this.page.pageNo>=this.page.pageTotal?'disabled':''" @click="nextPage()">></li>
                 </ul>
             </div>
@@ -25,8 +25,8 @@
 </template>
 
 <script>
-    import CommonHeader from '../../components/common/CommonHeader.vue'
-    import CommonFooter from '../../components/common/CommonFooter.vue'
+    import CommonHeader from 'components/common/CommonHeader.vue'
+    import CommonFooter from 'components/common/CommonFooter.vue'
 
     export default {
         name: 'More',
@@ -39,7 +39,7 @@
                     pageNo:1,         // 页码
                     pageSize:14      // 每页条数
                 },
-            }
+        }
         },
         components: {
             CommonHeader,
@@ -74,6 +74,11 @@
                 }
             }
         },
+        computed:{
+            pagination:function () {
+                return [1,2,3,4,5,6,'...',this.page.pageTotal]
+            }
+         },
         mounted(){
             this.getLists();
         }
@@ -92,7 +97,7 @@
     }
     .header-warp{
         width: 100%;
-        height: 52px;
+        height: 45px;
     }
     .content-warp {
         width: 100%;
@@ -111,7 +116,7 @@
                 background: #fff;
                 border-radius: 4px;
                 margin-bottom: 7px;
-                box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.05);
+                box-shadow: 0 2px 2px 0 rgba(0,0,0,0.05);
                 img{
                     width: 48px;
                     height: 48px;
@@ -123,14 +128,15 @@
             }
         }
         .pagination{
+            margin-left: 12px;
             li{
                 float: left;
                 width: 28px;
                 height: 28px;
-                background: #ffffff;
+                background: #fff;
                 border: 1px solid #cbcbcb;
                 border-radius: 4px;
-                box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.05);
+                box-shadow: 0px 2px 2px 0 rgba(0,0,0,0.05);
                 margin: 0 2px;
                 text-align: center;
                 line-height: 28px;

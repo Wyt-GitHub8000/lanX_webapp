@@ -1,10 +1,10 @@
 <template>
     <div>
         <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-            <van-swipe-item><img src="../../assets/images/news.jpg" alt=""></van-swipe-item>
-            <van-swipe-item><img src="../../assets/images/news2.jpg" alt=""></van-swipe-item>
-            <van-swipe-item><img src="../../assets/images/news3.png" alt=""></van-swipe-item>
-            <van-swipe-item><img src="../../assets/images/news.jpg" alt=""></van-swipe-item>
+            <van-swipe-item><img src="~assets/images/news/news.jpg" alt=""></van-swipe-item>
+            <van-swipe-item><img src="~assets/images/news/news2.jpg" alt=""></van-swipe-item>
+            <van-swipe-item><img src="~assets/images/news/news3.png" alt=""></van-swipe-item>
+            <van-swipe-item><img src="~assets/images/news/news.jpg" alt=""></van-swipe-item>
         </van-swipe>
 
         <news-list :item="newList"><span>游戏相关新闻</span></news-list>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-    import NewsList from '../../components/content/news/NewsList.vue'
+    import NewsList from 'components/content/news/NewsList.vue'
     export default {
         name: 'News',
         components:{

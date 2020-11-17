@@ -17,7 +17,12 @@ export default {
             listplayer.push(
                 Mock.mock({
                     playerName: Mock.Random.ctitle(4),
-                    playerCore: Mock.Random.string("★",3,5)
+                    playerClass:Mock.Random.float(3,4,1,1),
+                    playerCore: Mock.Random.string("★",3,5),
+                    playerField:Mock.Random.ctitle(3,4),
+                    playerId:Mock.Random.string('ab1wls8rt3d',5,7),
+                    playerFans:Mock.Random.integer(103655,256393),
+                    playerWorks:Mock.Random.integer(1009,3590)
                 })
             )
         }

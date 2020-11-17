@@ -6,18 +6,11 @@
         <div class="logo">
             <div>蓝犀互娱</div>
         </div>
-        <input type="text" id="" placeholder="搜索"  />
-        <!--通过遮罩控制侧边导航菜单的隐藏-->
-        <!--<div>-->
-            <!--<div class="nav-sidebar__shade"></div>-->
-            <!--<ul class="nav">-->
-                <!--<li @click="clickMenu(item)" v-for="item in navMenu">{{item.label}}</li >-->
-            <!--</ul>-->
-        <!--</div>-->
+        <input type="text" id="search" placeholder="原神" @click="clickInput"/>
         <ul class="nav">
             <li @click="clickMenu(item,index)" v-for="(item,index) in navMenu" :class="flag==index?'current':''">{{item.label}}</li >
         </ul>
-        <div class=""></div>
+        <div class="shade" @click="shadeClick"></div>
     </div>
 </template>
 
@@ -27,15 +20,20 @@
         methods: {
             listShow(){
                 if(this.isShow){
-                    $('.nav').animate({left:'-176px'})
+                    $('.nav').animate({left:'-375px'});
+                    $('.shade').fadeOut(300);
                 }else {
                     $('.nav').animate({left:'0px'});
+                    $('.shade').fadeIn(300);
                 }
                 this.isShow = ! this.isShow;
             },
+            shadeClick(){
+               this.listShow()
+            },
             clickMenu(item,index){
                 //点击菜单项更改样式
-                this.flag=index
+                this.flag = index
                 $('.nav li').click(function() {
                     $(this).addClass('current');
                     $(this).siblings('.current').removeClass('current');
@@ -43,6 +41,9 @@
                 this.listShow()
                 //进行路由跳转
                 this.$router.push({name: item.name})
+            },
+            clickInput(){
+                this.$router.push('/search')
             }
         },
         data(){
@@ -88,23 +89,24 @@
         width: 100vw;
         display: flex;
         z-index:999;
+        height: 45px;
     }
     .header .logo{
         display: inline-block;
         color: #fff;
         margin-right: 56px;
         font-size: 12px;
-        line-height: 52px;
+        line-height: 48px;
     }
     .van-button {
         padding-left: 17px;
         border: none;
-        height: 52px;
+        height: 45px;
     }
     .header input{
         width: 196px;
         height: 22px;
-        margin-top: 14px;
+        margin-top: 11px;
         border-radius: 18px;
         background-color: #5cc1f5;
         border: 1px solid #5cc1f5;
@@ -124,8 +126,16 @@
         height: 100vh;
         position: absolute;
         left: -176px;
-        top: 52px;
+        top: 45px;
         z-index:999;
+    }
+    .header .shade{
+        background-color: rgba(0,0,0,.5);
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 45px;
+        display: none;
     }
     .nav li{
         width: 100%;
@@ -138,13 +148,5 @@
     .nav .current{
         background-color: #68ccff;
         color: #fff;
-    }
-
-    /*尝试颜色遮罩*/
-    .nav-sidebar__shade{
-        opacity: 1;
-    }
-    .nav-sidebar__shade{
-
     }
 </style>

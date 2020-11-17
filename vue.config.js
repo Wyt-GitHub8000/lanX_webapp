@@ -1,5 +1,7 @@
 const webpack = require('webpack')
 module.exports = {
+
+    //服务器模块相关配置
     devServer: {
         port: 3333,
         public: '169.254.107.190:3333',
@@ -9,6 +11,8 @@ module.exports = {
 
          }*/
     },
+
+    //css模块相关配置
     css: {
         loaderOptions: {
             sass: {
@@ -16,13 +20,24 @@ module.exports = {
             }
         }
     },
+
+    //webpack相关配置
     configureWebpack: {
+        //插件配置
         plugins: [
             new webpack.ProvidePlugin({
                 $: "jquery",
                 jQuery: "jquery",
                 "windows.jQuery": "jquery"
             })
-        ]
+        ],
+        //文件别名配置
+        resolve: {
+            alias: {    // 默认 @ === src
+                assets: "@/assets",
+                components: "@/components",
+                views: "@/views",
+            }
+        }
     }
 }
