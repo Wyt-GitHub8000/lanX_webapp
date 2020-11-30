@@ -1,10 +1,14 @@
 const webpack = require('webpack')
 module.exports = {
+    //打包路径配置
+    publicPath:'./',
+    outputDir:'dist',
+    assetsDir:'static',
 
     //服务器模块相关配置
     devServer: {
-        port: 3333,
-        public: '169.254.107.190:3333',
+        port: 8080,
+        public: '169.254.107.190:8080',
         open: true,
         /* 设置前端代理解决跨域访问问题
          proxy: {
@@ -40,4 +44,5 @@ module.exports = {
             }
         }
     }
+
 }

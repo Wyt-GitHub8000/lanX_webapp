@@ -8,6 +8,10 @@ const service = axios.create({
     timeout : 30
 })
 
+//处理axios.all报错问题
+service.all = axios.all
+service.spread = axios.spread
+
 //请求拦截
 service.interceptors.request.use(
     config =>{

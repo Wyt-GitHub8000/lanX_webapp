@@ -3,29 +3,29 @@
         <div class="header-warp"><common-header></common-header></div>
         <div class="content-warp">
             <div class="player-message">
-                <img src="~assets/images/details/label.png" alt="" class="er-code">
-                <img src="~assets/images/details/pt.png" alt="">
-                <div class="corner"></div>
-                <div class="name">{{currentPlayer.playerName}}</div>
+                <img src="~assets/images/details/label.png" alt="" class="er-code" @click="codeClick">
+                <img :src="currentPlayer.avatar" alt="" style="width: 81px; height: 81px">
+                <div class="corner" id="corner"></div>
+                <div class="name">{{currentPlayer.nickname}}</div>
                 <div class="other">
-                    <span>综合得分：{{currentPlayer.playerClass}}★</span>
-                    <span>主播领域：{{currentPlayer.playerField}}</span>
-                    <span>抖音号：{{currentPlayer.playerId}}</span>
+                    <span>综合得分：{{currentPlayer.trend}}★</span>
+                    <span>主播领域：{{currentPlayer.domain}}</span>
+                    <span>抖音号：{{currentPlayer.uniqueId}}</span>
                 </div>
                 <div class="count">
                     <span>
-                        <div style="width: 54px; height: 16px; font-size: 16px; color: #25acf1; line-height: 21px;  margin: 0 0 8px 77px">{{currentPlayer.playerFans}}</div>
+                        <div style="width: 54px; height: 16px; font-size: 16px; color: #25acf1; line-height: 21px;  margin: 0 0 8px 77px">{{currentPlayer.followerCount}}</div>
                         <div style="width: 24px; height: 12px; font-size: 12px; color: #25acf1; line-height: 21px; margin-left: 92px">粉丝</div>
                     </span>
                     <span>
-                        <div style="width: 36px; height: 16px; font-size: 16px; color: #25acf1; line-height: 21px; margin: 0 0 8px 45px">{{currentPlayer.playerWorks}}</div>
+                        <div style="width: 36px; height: 16px; font-size: 16px; color: #25acf1; line-height: 21px; margin: 0 0 8px 45px">{{currentPlayer.awemeCount}}</div>
                         <div style="width: 24px; height: 12px; font-size: 12px; color: #25acf1; line-height: 21px; margin-left: 50px;">视频</div>
                     </span>
                 </div>
             </div>
             <div class="player-worker">
                 <div style="height: 37px; border-bottom: 1px solid #ddd; position: relative">
-                    <div class="works">视频&nbsp;{{currentPlayer.playerWorks}}</div>
+                    <div class="works">视频&nbsp;{{currentPlayer.awemeCount}}</div>
                 </div>
                 <div style="width: 72px; height: 12px; font-size: 12px; color: #333; line-height: 21px; margin: 11px 0 12px 18px">全部视频稿件</div>
                 <player></player>
@@ -69,6 +69,11 @@
             ...mapState({
                 currentPlayer : state => state.playerMessage.currentPlayerMessage
             })
+        },
+        methods:{
+            codeClick(){
+               document.getElementById('corner').style.display = 'none';
+            }
         }
     }
 </script>
@@ -127,7 +132,7 @@
                 width: 90px;
                 height: 18px;
                 font-size: 18px;
-                color: $font2-color;
+                color: #333;
                 text-align: center;
                 margin: 0 0 11px 131px;
             }
@@ -142,8 +147,8 @@
                     line-height: 11px;
                 }
                 span:nth-child(2){
-                    width: 120px;
-                    margin: 0 -5px 0 25px;
+                    width: 128px;
+                    margin: 0 8px 0 12px;
                 }
                 span:nth-child(3){
                     width: 78px;

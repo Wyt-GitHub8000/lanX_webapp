@@ -8,10 +8,10 @@
             <ul class="playerlist">
                 <li style="display: flex; align-items: center" v-for="(item,index) in item" @click="playerClick(item,index)">
                     <span style="font-size: 12px; color: #FE931B; margin:0 13px">{{index+1}}</span>
-                    <img src="~assets/images/home/tou.png" style="width: 40px; height: 40px; border-radius: 50%">
+                    <img :src="item.avatar" style="width: 40px; height: 40px; border-radius: 50%">
                     <div style="display: flex; flex-direction: column; margin-left: 8px">
-                        <span style="font-size: 12px; color: #333; margin: 6px 0 6px">{{item.playerName}}</span>
-                        <span style="font-size: 10px; color: #9D9D9D">综合得分:{{item.playerClass}}★</span>
+                        <span style="font-size: 12px; color: #333; margin: 6px 0 6px">{{item.nickname}}</span>
+                        <span style="font-size: 10px; color: #9D9D9D">综合得分:{{item.trend}}★</span>
                     </div>
                 </li>
             </ul>
@@ -31,7 +31,6 @@
                     this.$store.commit('copyPlayerMessage',item);
                     this.$router.push('/playerdetails');
                 }
-
             }
         }
     }

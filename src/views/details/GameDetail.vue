@@ -26,16 +26,36 @@
                 </div>
                 <div class="teach-video">
                     <div style="height: 12px; border-left: 2px solid #25acf1; color: #333; font-size: 12px; margin-left: 17px; padding-left: 6px">视频</div>
-                    <div class="video">
-                        <img src="~assets/images/details/st1.png" style="margin-right: 4px">
-                        <img src="~assets/images/details/st2.png">
-                        <div>
-                            <p>《原神·提瓦特篇》主线章节预告PV-「足迹」</p>
-                            <p>5小时前</p>
-                        </div>
-                        <div style="left: 163px">
-                            <p>《原神·提瓦特篇》主线章节预告PV-「足迹」</p>
-                            <p>5小时前</p>
+                    <div class="swiper-container video" >
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="~assets/images/details/st1.png" style="margin-right: 4px">
+                                <div>
+                                    <p>《原神·提瓦特篇》主线章节预告PV-「足迹」</p>
+                                    <p>5小时前</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~assets/images/details/st2.png">
+                                <div>
+                                    <p>《原神·提瓦特篇》主线章节预告PV-「足迹」</p>
+                                    <p>5小时前</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~assets/images/details/st1.png" style="margin-right: 4px">
+                                <div>
+                                    <p>《原神·提瓦特篇》主线章节预告PV-「足迹」</p>
+                                    <p>5小时前</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~assets/images/details/st1.png" style="margin-right: 4px">
+                                <div>
+                                    <p>《原神·提瓦特篇》主线章节预告PV-「足迹」</p>
+                                    <p>5小时前</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -64,16 +84,33 @@
     import CommonHeader from 'components/common/CommonHeader.vue'
     import CommonFooter from 'components/common/CommonFooter.vue'
 
+    import Swiper from 'swiper'
+
     export default {
         name: 'GameDetail',
         components:{
             CommonHeader,
             CommonFooter
+        },
+        methods:{
+            initSwiper(){
+                new Swiper('.swiper-container',{
+                    freeMode : true,
+                    freeModeSticky : true,
+                    slidesPerView: 'auto'
+                })
+            },
+
+        },
+        mounted(){
+            this.initSwiper();
         }
     }
 </script>
 
 <style lang="scss" scoped>
+    @import '../../../node_modules/swiper/dist/css/swiper.css';
+    @import '../../../node_modules/swiper/dist/css/swiper.min.css';
     *{
         margin: 0;
         padding: 0;
@@ -151,23 +188,23 @@
                 border-bottom: 1px solid #f2f2f2;
                 padding-top: 15px;
                 .video{
-                    display: flex;
                     width: 317px;
-                    margin-left: 17px;
+                    margin-left: 14px;
                     margin-top: 9px;
-                    position: relative;
-                    img{
-                        overflow: hidden;
-                    }
-                    div{
-                        position: absolute;
-                        bottom: 10px;
-                        p{
-                            width: 156px;
-                            height: 10px;
-                            font-size: 10px;
-                            color: #fff;
-                            line-height: 26px;
+                    .swiper-slide{
+                        width: 181px !important;
+                        position: relative;
+                        margin-right: 4px;
+                        div{
+                            position: absolute;
+                            bottom: 10px;
+                            p{
+                                width: 178px;
+                                height: 10px;
+                                font-size: 10px;
+                                color: #fff;
+                                line-height: 26px;
+                            }
                         }
                     }
                 }

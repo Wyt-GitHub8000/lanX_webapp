@@ -6,6 +6,7 @@
         <div class="logo">
             <div>蓝犀互娱</div>
         </div>
+        <span class="iconfont">&#xe603;</span>
         <input type="text" id="search" placeholder="原神" @click="clickInput"/>
         <ul class="nav">
             <li @click="clickMenu(item,index)" v-for="(item,index) in navMenu" :class="flag==index?'current':''">{{item.label}}</li >
@@ -104,13 +105,13 @@
         height: 45px;
     }
     .header input{
-        width: 196px;
+        width: 181px;
         height: 22px;
         margin-top: 11px;
         border-radius: 18px;
         background-color: #5cc1f5;
         border: 1px solid #5cc1f5;
-        padding-left: 10px;
+        padding-left: 25px;
     }
     .header input:focus{
         outline: none;
@@ -148,5 +149,25 @@
     .nav .current{
         background-color: #68ccff;
         color: #fff;
+    }
+    @font-face {
+        font-family: 'iconfont';
+        src: url('../../assets/fonts/iconfont.eot');
+        src: url('../../assets/fonts/iconfont.eot?#iefix') format('embedded-opentype'),
+        url('../../assets/fonts/iconfont.woff2') format('woff2'),
+        url('../../assets/fonts/iconfont.woff') format('woff'),
+        url('../../assets/fonts/iconfont.ttf') format('truetype'),
+        url('../../assets/fonts/iconfont.svg#iconfont') format('svg');
+    }
+    .iconfont {
+        font-family: "iconfont" !important;
+        color: white;
+        font-size: 10px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        position: absolute;
+        left: 165px;
+        top: 19px;
     }
 </style>

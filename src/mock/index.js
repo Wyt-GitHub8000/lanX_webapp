@@ -21,7 +21,7 @@ import page10Api from './pagination/ten'
 
 //Mock模拟网络延时
 Mock.setup({
-    timeout: '100-300'
+    timeout: '300-400'
 })
 
 //处理拦截到的各种请求,接收到拦截的请求后调用数据空间接口

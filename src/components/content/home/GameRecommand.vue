@@ -3,10 +3,10 @@
         <ul>
             <li v-for="item in item">
                 <div style="display: flex">
-                    <img src="~assets/images/home/toux.png" style="width: 40px;height: 40px;margin: 11px 12px 0 13px">
+                    <img :src="item.appIcon" style="width: 40px;height: 40px;margin: 11px 12px 0 13px">
                     <div style="width: 280px; display: flex; flex-direction: column ">
-                        <span style="margin:12px 0 10px 0;font-size: 14px; color: #333">{{item.gameName}}</span>
-                        <span style="color: rgb(112,112,112);font-size: 10px">{{item.gamedetail}}</span>
+                        <span style="margin:12px 0 10px 0;font-size: 14px; color: #333">{{item.appName}}</span>
+                        <span style="color: rgb(112,112,112);font-size: 10px; display: -webkit-box; overflow: hidden; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{item.summary}}</span>
                     </div>
                 </div>
                 <img src="~assets/images/home/aaa.png" alt="">

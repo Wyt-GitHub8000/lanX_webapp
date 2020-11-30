@@ -2,7 +2,7 @@
     <div class="hotviedo">
         <div class="title">
             <div>热门视频推荐</div>
-            <div><a>换一批</a></div>
+            <div @click="changeClick"><a>换一批</a></div>
         </div>
         <ul class="viedo">
         <li v-for="(item, index) in hotViedos">
@@ -34,7 +34,19 @@
                     require('assets/images/rank/game.png'),
                     require('assets/images/rank/tihuan.png'),
                     require('assets/images/rank/game.png'),
-                ]
+                ],
+                isShow:true
+            }
+        },
+        methods:{
+            changeClick(){
+                this.hotViedos = [];
+                this.http.get('/rank/getData').then(
+                    res => {
+                        res = res.data;
+                        this.hotViedos = res.viedoData;
+                    }
+                )
             }
         },
         mounted(){

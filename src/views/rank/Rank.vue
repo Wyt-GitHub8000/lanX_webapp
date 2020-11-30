@@ -11,18 +11,18 @@
                     <ul class="game">
                         <li v-for="(item,index) in gameList">
                             <corner-marker :index="index+1"></corner-marker>
-                            <img src="~assets/images/rank/touxiang.png" style="width: 60px; height: 60px;">
+                            <img :src="item.appIcon" style="width: 60px; height: 60px; border-radius: 4px">
                             <div>
                                 <div style="margin-top: 25px">
-                                    <span style="width: 28px; height: 14px; font-size: 14px; color: #333">{{item.gameName}}</span>
-                                    <span style="width: 59px; height: 10px; font-size: 10px ;color: #999; margin: 0 105px 0 7px">厂商:{{item.gameFirm}}</span>
-                                    <span style="width: 40px; height: 10px; font-size: 10px; color: #25ACF1">{{item.gameType}}</span>
+                                    <span style="width: 57px; height: 14px; font-size: 14px; color: #333; overflow: hidden; text-overflow:ellipsis; white-space: nowrap;">{{item.appName}}</span>
+                                    <span style="width: 59px; height: 10px; font-size: 10px ;color: #999; margin: 0 74px 0 7px">厂商:{{item.factory}}</span>
+                                    <span style="width: 40px; height: 10px; font-size: 10px; color: #25ACF1">角色扮演</span>
                                 </div>
-                                <div style="width: 239px; height: 26px; font-size: 10px; line-height: 16px; color: #333; margin-top: 14px">{{item.gameDescribe}}</div>
+                                <div style="width: 239px; height: 26px; font-size: 10px; line-height: 16px; color: #333; margin-top: 14px">{{item.summary}}</div>
                                 <div class="tag">
-                                    <span>{{item.gameTag1}}</span>
-                                    <span>{{item.gameTag2}}</span>
-                                    <span>{{item.gameTag3}}</span>
+                                    <span>{{gameTags[0].name}}</span>
+                                    <span>{{gameTags[1].name}}</span>
+                                    <span>{{gameTags[2].name}}</span>
                                 </div>
                             </div>
                         </li>
@@ -33,18 +33,18 @@
                     <ul class="player">
                         <li v-for="(item,index) in playList">
                             <corner-marker :index="index+1"></corner-marker>
-                            <img src="~assets/images/footer/xihongs.png">
+                            <img :src="item.avatar">
                             <div style="margin-top: 23px">
                                 <div>
-                                    <span style="width: 70px; height: 14px; font-size: 14px; line-height: 14px; color: #333">{{item.playName}}</span>
-                                    <span style="width: 64px; height: 10px; font-size: 10px; line-height: 10px; color: #999; margin:0 3px 0 11px">综合得分：{{item.playCore}}</span>
-                                    <span style="width: 8px; height: 7px; font-size: 8px; color: #999">{{item.playXing}}</span>
+                                    <span style="width: 70px; height: 14px; font-size: 14px; line-height: 14px; color: #333">{{item.nickname}}</span>
+                                    <span style="width: 64px; height: 10px; font-size: 10px; line-height: 10px; color: #999; margin:0 3px 0 11px">综合得分：{{item.trend}}★</span>
+                                    <!--<span style="width: 8px; height: 7px; font-size: 8px; color: #999">{{item.playXing}}</span>-->
                                 </div>
-                                <div style="width: 124px; height: 11px; font-size: 10px; line-height: 10px; color: #999;margin:7px 0 5px">主播领域：{{item.playFiled}}</div>
+                                <div style="width: 124px; height: 11px; font-size: 10px; line-height: 10px; color: #999;margin:7px 0 5px">主播领域：{{item.domain}}</div>
                                 <div>
-                                    <span style="width: 78px; height: 10px; font-size: 10px; line-height: 11px; color: #666">抖音号：{{item.playId}}</span>
-                                    <span style="width: 74px; height: 10px; font-size: 10px; line-height: 11px; color: #666;margin: 0 5px">粉丝数：{{item.playFans}}</span>
-                                    <span style="width: 63px; height: 10px; font-size: 10px; line-height: 11px; color: #666">视频数：{{item.playWorks}}</span>
+                                    <span style="width: 78px; height: 10px; font-size: 10px; line-height: 11px; color: #666">抖音号：{{item.uniqueId}}</span>
+                                    <span style="width: 74px; height: 10px; font-size: 10px; line-height: 11px; color: #666;margin: 0 5px">粉丝数：{{item.followerCount}}</span>
+                                    <span style="width: 63px; height: 10px; font-size: 10px; line-height: 11px; color: #666">视频数：{{item.awemeCount}}</span>
                                 </div>
                             </div>
                         </li>
@@ -55,12 +55,12 @@
                     <ul class="viedo">
                         <li v-for="(item, index) in viedosList">
                             <corner-marker :index="index+1"></corner-marker>
-                            <img src="~assets/images/rank/tihuan.png" style="width: 168px; height: 94px; border-radius: 4px">
-                            <span style="left: 6px"><img src="~assets/images/rank/dianzan.png">{{item.dzCount}}</span>
-                            <span style="left: 51px"><img src="~assets/images/rank/pinglun.png">{{item.plCount}}</span>
-                            <span style="left: 120px"><img src="~assets/images/rank/fenxiang.png">{{item.fxCount}}</span>
-                            <div style="width:168px; height: 33px; font-size: 12px; line-height: 18px; color: #333; margin: 9px 0 3px 0; display: -webkit-box; overflow: hidden; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{item.viedoDescrib}}</div>
-                            <div style="width: 50px; height: 10px; font-size: 10px; line-height: 18px; color: #999">{{item.viedoCreater}}</div>
+                            <img :src="item.thumb" style="width: 168px; height: 94px; border-radius: 4px" class="cover">
+                            <span style="left: 6px"><img src="~assets/images/rank/dianzan.png">{{item.diggCount}}</span>
+                            <span style="left: 51px"><img src="~assets/images/rank/pinglun.png">{{item.commentCount}}</span>
+                            <span style="left: 120px"><img src="~assets/images/rank/fenxiang.png">{{item.shareCount}}</span>
+                            <div style="width:168px; height: 33px; font-size: 12px; line-height: 18px; color: #333; margin: 9px 0 3px 0; display: -webkit-box; overflow: hidden; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{item.descript}}</div>
+                            <div style="width: 50px; height: 18px; font-size: 10px; line-height: 18px; color: #999; overflow: hidden; text-overflow:ellipsis; white-space: nowrap;">{{item.userName}}</div>
                         </li>
                     </ul>
                     <more-button></more-button>
@@ -84,16 +84,56 @@
                 activeName: 'a',
                 gameList:[],
                 playList:[],
-                viedosList:[]
+                viedosList:[],
+                gameTags:[]
+            }
+        },
+        methods:{
+            getGamesList(){
+                const params = new URLSearchParams();
+                params.append('page','1');
+                params.append('pageSize','5');
+                return this.http.post('http://localhost:80/rank/games',params);
+            },
+            getPlayerList(){
+                const params = new URLSearchParams();
+                params.append('page','1');
+                params.append('pageSize','7');
+                return this.http.post('http://localhost:80/rank/kols');
+            },
+            getVideoList(){
+                const params = new URLSearchParams();
+                params.append('page','1');
+                params.append('pageSize','10');
+                return this.http.post('http://localhost:80/rank/awemes')
             }
         },
         mounted(){
-            this.http.get('/rank/getData').then(
+//            this.http.get('/rank/getData').then(
+//                res=>{
+//                    res = res.data;
+//                    this.gameList = res.gameData;
+//                    this.playList = res.playData;
+//                    this.viedosList = res.viedoData
+//                }
+//            )
+            //使用后台提供的接口更换数据
+            let _this = this;
+            this.http.all([_this.getGamesList(),_this.getPlayerList(),_this.getVideoList()]).then(
+                this.http.spread(function (res1,res2,res3) {
+                    console.log('排行榜所有数据更新成功')
+                    res1 = res1.data;
+                    res2 = res2.data;
+                    res3 = res3.data;
+                    _this.gameList = res1.data;
+                    _this.playList = res2.data;
+                    _this.viedosList = res3.data;
+                })
+            )
+            this.http.post('http://localhost:80/home/tags').then(
                 res=>{
                     res = res.data;
-                    this.gameList = res.gameData;
-                    this.playList = res.playData;
-                    this.viedosList = res.viedoData
+                    this.gameTags = res.data;
                 }
             )
         }
@@ -141,7 +181,7 @@
             height: 132px;
             background-color: #fff;
             border-radius: 4px;
-            box-shadow: 0px 2px 2px 0 rgba(0,0,0,.05);
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,.05);
             display: flex;
             position: relative;
             img{
@@ -171,9 +211,9 @@
         li{
             width: 345px;
             height: 96px;
-            background: #ffffff;
+            background: #fff;
             border-radius: 4px;
-            box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.05);
             display: flex;
             position: relative;
             img{
